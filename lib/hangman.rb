@@ -26,6 +26,8 @@ class Hangman
     puts "Welcome to hangman!"
     sleep 1
     puts "Would you like to load a save state?"
+    puts "y/n"
+    @yes_or_no = gets.chomp
     load_game? 
     sleep 2
     puts "Enter 'save' anytime during the game to save your progress."
@@ -36,10 +38,8 @@ class Hangman
     good_guess?
   end
 
-  def load_game?
-    puts "y/n"
-    yes_or_no = gets.chomp
-    if yes_or_no == 'y'
+  def load_game?   
+    if @yes_or_no == 'y'
       puts "What was the name of your save file? Type it without the extension."
       puts Dir.entries("saves")
       filename = gets.chomp + '.txt'
@@ -49,6 +49,7 @@ class Hangman
         @used_letters = values["used_letters"]
         @random_word = values["random_word"]
         @hidden_word = values["hidden_word"]
+        puts @hidden_word
         good_guess?
       elsif filename == "new"
         start_game
@@ -122,7 +123,7 @@ class Hangman
   def lose
     sleep 1
     puts "You ran out of lives."
-    puts "The word was #{random_word.join}"
+    puts "The word was #{@random_word.join}"
     exit
   end
 

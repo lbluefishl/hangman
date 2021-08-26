@@ -1,0 +1,1 @@
+{"guesses":6,"used_letters":["r","s","t","e"],"random_word":["d","i","s","t","r","a","c","t","i","o","n"],"hidden_word":" _ _ s t r _ _ t _ _ _","save_file":"test3"}
